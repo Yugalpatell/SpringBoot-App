@@ -54,6 +54,8 @@ public class JwtFilter extends OncePerRequestFilter {
 
         }
 
-        filterChain.doFilter(request,response);
+        if (request.getRequestURI().contains("/auth")) {
+            filterChain.doFilter(request, response);
+        }
     }
 }
